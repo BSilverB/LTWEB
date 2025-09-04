@@ -44,7 +44,12 @@
 <div class="login-box">
   <h2>Đăng Nhập Vào Hệ Thống</h2>
   
-  <form action="login" method="post">
+  <%-- Hiện alert nếu có --%>
+    <c:if test="${not empty alert}">
+        <div style="color:red;">${alert}</div>
+    </c:if>
+  
+  <form action="${pageContext.request.contextPath}/login" method="post">
     <!-- Tài khoản -->
     <div class="input-group" style="margin-bottom:15px;">
       <span class="input-group-addon"><i class="fa fa-user"></i></span>
@@ -58,7 +63,7 @@
     
     <div class="row remember">
       <div class="col-xs-6">
-        <label><input type="checkbox"> Nhớ tôi</label>
+        <label><input type="checkbox" name="remember"> Nhớ tôi</label>
       </div>
       <div class="col-xs-6 text-right">
         <a href="#">Quên mật khẩu?</a>
@@ -68,7 +73,7 @@
     <button type="submit" class="btn btn-login">Đăng nhập</button>
     
     <div class="bottom-text">
-      Nếu bạn chưa có tài khoản trên hệ thống, thì hãy <a href="#">Đăng ký</a>
+      Nếu bạn chưa có tài khoản trên hệ thống, thì hãy <a href="views/register.jsp">Đăng ký</a>
     </div>
   </form>
 </div>
